@@ -2,7 +2,6 @@ const express = require("express");
 require("dotenv").config();
 const cors = require("cors");
 const app = express();
-const testRoutes = require("./routes/testRoutes");
 const errorHandler = require("./middlewares/errorHandlers");
 const ConnectDB = require("./config/dbConfig");
 const UsersRoutes = require("./routes/UsersRoutes");
@@ -26,7 +25,6 @@ app.use(cors({
 
 
 app.use(express.json());
-app.use("/api/test/", testRoutes);
 app.use("/api/users/secure", UsersSecureRoutes);
 app.use("/api/users", UsersRoutes);
 app.use(errorHandler);
